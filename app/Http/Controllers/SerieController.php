@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-class SeriesController{
+use Illuminate\Http\Request;
+
+class SerieController extends Controller
+{
     public function listarSeries(){
         $series = [
-            'Breaking bad',
-            'Cobra kai'
+            'Breaking Bad',
+            'Cobra Kai',
+            'The Office'
         ];
 
         $html = '<ul>';

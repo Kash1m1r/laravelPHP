@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\LinguagemController;
+use App\Http\Controllers\SerieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/series', [SeriesController::class, 'listarSeries']);
+Route::get('/series', [SerieController::class, 'listarSeries']);
+Route::get('/linguagens', [LinguagemController::class, 'listarLinguagens']);
