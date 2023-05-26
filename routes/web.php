@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/series', [SerieController::class, 'listarSeries']);
-Route::get('/linguagens', [LinguagemController::class, 'listarLinguagens']);
+Route::get('/linguagens', [LinguagemController::class, 'index']);
