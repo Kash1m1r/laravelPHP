@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrutasController;
 use App\Http\Controllers\LinguagemController;
 use App\Http\Controllers\SerieController;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/series', [SerieController::class, 'listarSeries']);
+Route::get('/series', [SerieController::class, 'index']);
 Route::get('/linguagens', [LinguagemController::class, 'index']);
+Route::get('/fruta',[FrutasController::class, 'index']);
