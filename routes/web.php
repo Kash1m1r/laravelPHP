@@ -21,5 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/series', [SerieController::class, 'index']);
+Route::get('/series/criar', [SerieController::class, 'create']);
 Route::get('/linguagens', [LinguagemController::class, 'index']);
+Route::get('/linguagens/criar', [LinguagemController::class, 'create']);
 Route::get('/fruta',[FrutasController::class, 'index']);
+Route::get('/fruta/criar',[FrutasController::class, 'create']);

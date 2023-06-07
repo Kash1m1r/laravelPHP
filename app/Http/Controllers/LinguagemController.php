@@ -13,8 +13,10 @@ class LinguagemController extends Controller{
             'Python'
         ];
 
-        return view('listar-linguagens', [
-            'linguagens' => $linguagens
-        ]);
+        return view('linguagens.index')->with('linguagens', $linguagens);
+    }
+
+    public function create(){
+        return view('linguagens.createLinguagem');
     }
 }
