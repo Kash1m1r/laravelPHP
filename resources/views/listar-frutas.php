@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Séries</h1>
+    <h1>Frutas</h1>
     <ul>
-        <?php foreach ($series as $serie): ?>
-            <li> <?= $serie; ?></li>
+        <?php foreach ($frutas as $fruta): ?>
+            <li> <?= $fruta; ?></li>
         <?php endforeach; ?>
     </ul>
 </body>

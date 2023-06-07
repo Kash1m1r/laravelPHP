@@ -10,14 +10,12 @@ class SerieController extends Controller{
         $series = [
             'Breaking Bad',
             'Cobra Kai',
-            'The Office'
+            'The Office',
+            'The Walking Dead'
         ];
 
-        $html = '<ul>';
-        foreach ($series as $serie){
-            $html .= "<li>$serie</li>";
-        }
-        $html .= '</ul>';
-        return $html;
+        return view('listar-series', [
+            'series' => $series
+        ]);
     }
 }
