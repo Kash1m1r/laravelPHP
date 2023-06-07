@@ -14,8 +14,6 @@ class SerieController extends Controller{
             'The Walking Dead'
         ];
 
-        return view('listar-series', [
-            'series' => $series
-        ]);
+        return view('series.index')->with('series', $series);
     }
 }
