@@ -1,10 +1,12 @@
-<x-layout title="Novo ">
+<x-layout title="Novo Chamado">
     <form action="/links/salvar" method="post">
         @csrf
+        
         <div class="mb-3">
             <label for="nucleo" class="form-label">Nucleo:</label>
             <input type="text" id="nucleo" name="nucleo" class="form-control">
         </div>
+        
         <div class="mb-3">
             <label for="nome" class="form-label">Ticket:</label>
             <input type="text" id="nome" name="nome" class="form-control">
