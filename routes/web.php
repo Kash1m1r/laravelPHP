@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\RegistrarLinkController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [HomeController::class, 'index']);
 Route::get('/series', [SeriesController::class, 'index']);
+Route::get('/links', [RegistrarLinkController::class, 'index']);
 Route::get('/series/criar', [SeriesController::class, 'create']);
+Route::get('/links/criar', [RegistrarLinkController::class, 'create']);
 Route::post('/series/salvar', [SeriesController::class, 'store']);
+Route::post('/links/salvar', [RegistrarLinkController::class, 'store']);
