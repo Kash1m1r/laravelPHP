@@ -18,16 +18,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
+
 Route::get('/home', [HomeController::class, 'index']);
-Route::get('/series', [SeriesController::class, 'index']);
-Route::get('/links', [RegistrarLinkController::class, 'index']);
-Route::get('/times', [TimesController::class, 'index']);
-Route::get('/series/criar', [SeriesController::class, 'create']);
-Route::get('/links/criar', [RegistrarLinkController::class, 'create']);
-Route::get('/times/criar', [TimesController::class, 'create']);
-Route::post('/series/salvar', [SeriesController::class, 'store']);
-Route::post('/links/salvar', [RegistrarLinkController::class, 'store']);
-Route::post('/times/salvar', [TimesController::class, 'store']);
+
+/*
+Route::controller(SeriesController::class)->group(function (){
+    Route::get('/series', 'index')->name('series.index');
+    Route::get('/series/create', 'create')->name('series.create');
+    Route::post('/series/salvar', 'store')->name('series.store');
+});
+*/
+Route::resource('/series', SeriesController::class);
+
+Route::controller(RegistrarLinkController::class)->group(function(){
+    Route::get('/links', [RegistrarLinkController::class, 'index']);
+    Route::get('/links/criar', [RegistrarLinkController::class, 'create']);
+    Route::post('/links/salvar', [RegistrarLinkController::class, 'store']);
+});
+
+Route::controller(TimesController::class)->group(function(){
+    Route::get('/times', [TimesController::class, 'index']);
+    Route::get('/times/criar', [TimesController::class, 'create']);
+    Route::post('/times/salvar', [TimesController::class, 'store']);
+});
+
+
+
+
+
+
+
+
+
+
