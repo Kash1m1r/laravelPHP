@@ -31,7 +31,9 @@ Route::controller(SeriesController::class)->group(function (){
     Route::post('/series/salvar', 'store')->name('series.store');
 });
 */
-Route::resource('/series', SeriesController::class);
+Route::resource('/series', SeriesController::class)
+    ->only(['index', 'create', 'store', 'destroy']);
+
 
 Route::controller(RegistrarLinkController::class)->group(function(){
     Route::get('/links', [RegistrarLinkController::class, 'index']);
