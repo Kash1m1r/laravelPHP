@@ -4,29 +4,22 @@ use DB;
 use Illuminate\Http\Request;
 
 class RegistrarLinkController extends Controller{
-    public function index(){
-        /*
-        $links = [
-            'asdf',
-            'asdfas'
-        ];
-        */
-        $links = DB::select('SELECT nome, nucleo, desc FROM links;');
-        return view('links.index')->with('links', $links);
+    public function index(Request $request){
+        $links = Link::query()->orderBy('nome')->get();
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        
+        return view('links.index')->with('links', $link);
     }
+
     public function create(){
         return view ('links.create');
     }
     public function store(Request $request){
-        $nomeTicket = $request->input('nome');
-        $nomeNucleo = $request->input('nucleo');
-        $nomeDesc = $request->input('desc');
-        
+        Link::create($request->all());
+        return to_route(links.index);
+    }
 
-        if(DB::insert('INSERT INTO links (nome, nucleo, desc ) VALUES (?, ?, ?)', [$nomeTicket, $nomeNucleo, $nomeDesc])){
-            return redirect('/links');
-        }else{
-            return "ERRROOOR";
-        }
+    public function destroy(Request $request){
+
     }
 }

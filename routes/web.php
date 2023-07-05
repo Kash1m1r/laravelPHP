@@ -35,12 +35,6 @@ Route::resource('/series', SeriesController::class)
     ->only(['index', 'create', 'store', 'destroy']);
 
 
-Route::controller(RegistrarLinkController::class)->group(function(){
-    Route::get('/links', [RegistrarLinkController::class, 'index']);
-    Route::get('/links/criar', [RegistrarLinkController::class, 'create']);
-    Route::post('/links/salvar', [RegistrarLinkController::class, 'store']);
-});
-
 Route::controller(TimesController::class)->group(function(){
     Route::get('/times', [TimesController::class, 'index']);
     Route::get('/times/criar', [TimesController::class, 'create']);
