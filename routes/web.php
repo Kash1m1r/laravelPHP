@@ -32,7 +32,8 @@ Route::controller(SeriesController::class)->group(function (){
 });
 */
 Route::resource('/series', SeriesController::class)
-    ->only(['index', 'create', 'store', 'destroy', 'edit']);
+    ->except(['show']);
+    
 
 
 Route::controller(TimesController::class)->group(function(){
